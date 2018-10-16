@@ -1,5 +1,5 @@
 
-####搭建个人的主页
+#### 搭建个人的主页
 需要注意的地方在运行：bundle exec jekyll server 
 启动项目的时候， 如果报错，报什么找不到就安装什么包： gem install xxx --version x.x.x
 
