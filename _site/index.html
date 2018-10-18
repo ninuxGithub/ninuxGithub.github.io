@@ -159,6 +159,27 @@
   <ol class="post-list">
     
     <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/javaLock/" title="访问 乐观锁vs悲观锁">乐观锁vs悲观锁</a></h2>
+      <p class="excerpt">&lt;h2&gt;乐观锁vs悲观锁&lt;/h2&gt;悲观锁（pessimistic lock）每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，期间对该数据进行读写的其他线程都会进行等待。乐观锁（optismistic lock）每次获取数据的时候，都不会担心数据被修改，所以每次获取数据的时候都不会进行加锁，但是在更新数据的时候需要判断该数据是否被别人修改过。如果数据被其他线...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-17 14:36:32 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-17</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">java</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/javaLock/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
       <h2 class="post-list__post-title post-title"><a href="/2018/09/diffJsCall&Apply/" title="访问 js apply和call的区别">js apply和call的区别</a></h2>
       <p class="excerpt">js apply 和call 的却别， 两个的功能其实是一样的，只是用法上面有点区别， 观测代码如下apply:传递的参数需要是数组call:传递的参数是逗号隔开的    function add(c,d){        return this.a + this.b + c + d;    }    var s = {a:1, b:2};    console.log(add.call(s,3,4)); // 1+2+3+4 = 10    console.log(add.apply(s...&hellip;</p>
       <div class="post-list__meta">        

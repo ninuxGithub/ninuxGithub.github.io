@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>js apply和call的区别</title>
-  <meta name="description" content="js apply 和call 的却别， 两个的功能其实是一样的，只是用法上面有点区别， 观测代码如下apply:传递的参数需要是数组call:传递的参数是逗号隔开的```javascript">
+  <title>乐观锁vs悲观锁</title>
+  <meta name="description" content="&lt;h2&gt;乐观锁vs悲观锁&lt;/h2&gt;悲观锁（pessimistic lock）每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，期间对该数据进行读写的其他线程都会进行等待。乐观锁（o...">
   <meta name="author" content="ninuxGithub">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="js apply和call的区别">
-  <meta name="twitter:description" content="js apply 和call 的却别， 两个的功能其实是一样的，只是用法上面有点区别， 观测代码如下apply:传递的参数需要是数组call:传递的参数是逗号隔开的```javascript">
+  <meta name="twitter:title" content="乐观锁vs悲观锁">
+  <meta name="twitter:description" content="&lt;h2&gt;乐观锁vs悲观锁&lt;/h2&gt;悲观锁（pessimistic lock）每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，期间对该数据进行读写的其他线程都会进行等待。乐观锁（o...">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="js apply和call的区别">
-  <meta property="og:description" content="js apply 和call 的却别， 两个的功能其实是一样的，只是用法上面有点区别， 观测代码如下apply:传递的参数需要是数组call:传递的参数是逗号隔开的```javascript">
+  <meta property="og:title" content="乐观锁vs悲观锁">
+  <meta property="og:description" content="&lt;h2&gt;乐观锁vs悲观锁&lt;/h2&gt;悲观锁（pessimistic lock）每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，期间对该数据进行读写的其他线程都会进行等待。乐观锁（o...">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/09/diffJsCall&Apply/">
+  <link rel="canonical" href="http://localhost:4000/2018/10/javaLock/">
   <link rel="alternate" type="application/rss+xml" title="ninuxGithub" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -156,10 +156,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">js apply和call的区别</h1>
+    <h1 class="post-title">乐观锁vs悲观锁</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2018-09-20 10:09:22 +0000" itemprop="datePublished" class="post-meta__date date">2018-09-20</time>  
+      <time datetime="2018-10-17 14:36:32 +0000" itemprop="datePublished" class="post-meta__date date">2018-10-17</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -167,25 +167,34 @@
   </header>
 
   <section class="post">
-    <div class="highlighter-rouge"><pre class="highlight"><code>js apply 和call 的却别， 两个的功能其实是一样的，只是用法上面有点区别， 观测代码如下
-apply:传递的参数需要是数组
-call:传递的参数是逗号隔开的
+    <div class="highlighter-rouge"><pre class="highlight"><code>&lt;h2&gt;乐观锁vs悲观锁&lt;/h2&gt;
 </code></pre>
 </div>
 
-<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>
-    <span class="kd">function</span> <span class="nx">add</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span> <span class="o">+</span> <span class="nx">d</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="p">{</span><span class="na">a</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span><span class="mi">2</span><span class="p">};</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">));</span> <span class="c1">// 1+2+3+4 = 10</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">add</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">s</span><span class="p">,[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]));</span> <span class="c1">// 1+2+5+6 = 14 </span>
-
-
+<h2 id="悲观锁pessimistic-lock">悲观锁（pessimistic lock）</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，
+确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，
+期间对该数据进行读写的其他线程都会进行等待。
 </code></pre>
 </div>
 
+<h2 id="乐观锁optismistic-lock">乐观锁（optismistic lock）</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>每次获取数据的时候，都不会担心数据被修改，所以每次获取数据的时候都不会进行加锁，
+但是在更新数据的时候需要判断该数据是否被别人修改过。如果数据被其他线程修改，
+则不进行数据更新，如果数据没有被其他线程修改，则进行数据更新。由于数据没有进行加锁，
+期间该数据可以被其他线程进行读写操作。
+</code></pre>
+</div>
+
+<h2 id="使用场景">使用场景</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>悲观锁：比较适合写入操作比较频繁的场景，如果出现大量的读取操作，每次读取的时候都会进行加锁，这样会增加大量的锁的开销，降低了系统的吞吐量。
+
+乐观锁：比较适合读取操作比较频繁的场景，如果出现大量的写入操作，数据发生冲突的可能性就会增大，为了保证数据的一致性，
+应用层需要不断的重新获取数据，这样会增加大量的查询操作，降低了系统的吞吐量。
+
+总结：两种所各有优缺点，读取频繁使用乐观锁，写入频繁使用悲观锁。
+</code></pre>
+</div>
 
 
   </section>
@@ -255,15 +264,10 @@ call:传递的参数是逗号隔开的
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2018/09/guavaTest/" data-toggle="tooltip" data-placement="top" title="Guava的集合使用">上一篇：  <span>Guava的集合使用</span>
+            <a href="/2018/09/diffJsCall&Apply/" data-toggle="tooltip" data-placement="top" title="js apply和call的区别">上一篇：  <span>js apply和call的区别</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2018/10/javaLock/" data-toggle="tooltip" data-placement="top" title="乐观锁vs悲观锁">下一篇：  <span>乐观锁vs悲观锁</span>
-            </a>
-        </li>
         
     </ul>
 </section>
@@ -275,8 +279,8 @@ call:传递的参数是逗号隔开的
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2018/09/diffJsCall&Apply/";
-        this.page.identifier = "/2018/09/diffJsCall&Apply/";
+        this.page.url = "http://localhost:4000/2018/10/javaLock/";
+        this.page.identifier = "/2018/10/javaLock/";
     };
     var disqus_shortname = 'ninuxGithub';
     

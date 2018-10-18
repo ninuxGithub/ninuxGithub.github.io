@@ -5,9 +5,49 @@
     <description>欢迎来到我的个人站~</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Oct 2018 14:55:13 +0800</pubDate>
-    <lastBuildDate>Wed, 17 Oct 2018 14:55:13 +0800</lastBuildDate>
+    <pubDate>Thu, 18 Oct 2018 08:47:05 +0800</pubDate>
+    <lastBuildDate>Thu, 18 Oct 2018 08:47:05 +0800</lastBuildDate>
     <generator>Jekyll v3.5.2</generator>
+    
+      <item>
+        <title>乐观锁vs悲观锁</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;h2&amp;gt;乐观锁vs悲观锁&amp;lt;/h2&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;悲观锁pessimistic-lock&quot;&gt;悲观锁（pessimistic lock）&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;每次获取数据的时候，都会担心数据被修改，所以每次获取数据的时候都会进行加锁，
+确保在自己使用的过程中数据不会被别人修改，使用完成后进行数据解锁。由于数据进行加锁，
+期间对该数据进行读写的其他线程都会进行等待。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;乐观锁optismistic-lock&quot;&gt;乐观锁（optismistic lock）&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;每次获取数据的时候，都不会担心数据被修改，所以每次获取数据的时候都不会进行加锁，
+但是在更新数据的时候需要判断该数据是否被别人修改过。如果数据被其他线程修改，
+则不进行数据更新，如果数据没有被其他线程修改，则进行数据更新。由于数据没有进行加锁，
+期间该数据可以被其他线程进行读写操作。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;使用场景&quot;&gt;使用场景&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;悲观锁：比较适合写入操作比较频繁的场景，如果出现大量的读取操作，每次读取的时候都会进行加锁，这样会增加大量的锁的开销，降低了系统的吞吐量。
+
+乐观锁：比较适合读取操作比较频繁的场景，如果出现大量的写入操作，数据发生冲突的可能性就会增大，为了保证数据的一致性，
+应用层需要不断的重新获取数据，这样会增加大量的查询操作，降低了系统的吞吐量。
+
+总结：两种所各有优缺点，读取频繁使用乐观锁，写入频繁使用悲观锁。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 17 Oct 2018 22:36:32 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/javaLock/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/javaLock/</guid>
+        
+        <category>java</category>
+        
+        
+      </item>
     
       <item>
         <title>js apply和call的区别</title>
