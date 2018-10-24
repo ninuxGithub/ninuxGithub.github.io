@@ -30,15 +30,26 @@
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
 
 <!-- 站点统计 -->
-  <script 
-  async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-  </script>  
+  <!--<script  async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>  -->
+  <script  async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  </script>
 
 <!-- 百度统计 -->
   
+  <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?607730063baee35487f9b4401b19431c";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+  
 
 <!-- google 统计 -->
-  
+<!--  
 
   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -46,7 +57,7 @@
     google_ad_client: "ca-pub-9005224472374751",
     enable_page_level_ads: true
   });
-</script>
+</script>-->
 
 </head>
 
@@ -157,6 +168,111 @@
             <div class="main-post-list hidden">
 
   <ol class="post-list">
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/dockerPublishProject/" title="访问 docer部署springboot项目">docer部署springboot项目</a></h2>
+      <p class="excerpt">配置项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.gitdocker发布项目：https://www.cnblogs.com/ityouknow/p/8599093.html https://www.jianshu.com/p/efd70ad53602安装docker,maven,jdk,git maven仓库配置为阿里云的仓库比较快开始发布mvn package docker:builddocker images: 显示...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-23 14:10:13 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-23</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">docker</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/dockerPublishProject/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/centos65Update/" title="访问 centos6.5升级内核">centos6.5升级内核</a></h2>
+      <p class="excerpt">1.centos升级1.查看内核uname -r 2.导入公钥数字证书rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org 3.安装elreporpm -Uvh https://www.elrepo.org/elrepo-release-6-8.el6.elrepo.noarch.rpm另外需要安装一个探索最快镜像的包yum --enablerepo=elrepo-kernel install kernel-lt -y4.安装...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-23 11:21:04 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-23</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">centos</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/centos65Update/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/TransferValue/" title="访问 值转递vs址传递">值转递vs址传递</a></h2>
+      <p class="excerpt">直接上代码———————————/** * &lt;pre&gt; * * 总结： *        1.基本数据类型是传递值的 *        2.引用数据类型是传递地址 *        3.String 是传递值的 *        4.StringBuffer 对象是传递址 * &lt;/pre&gt; */public class TransferValue {    public static void main(String[] args) {        Transfe...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-23 09:11:34 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-23</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">java</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/TransferValue/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/multiThread/" title="访问 任务切分采用多线程执行">任务切分采用多线程执行</a></h2>
+      <p class="excerpt">直接上代码:任务进行切分采用多线程执行//任务切分的数量public static final int taskSize = 4;			//线程池public final static ExecutorService pool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());	public void multiThread2SaveJson(String methodName,Object...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-19 16:57:28 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-19</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">java</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/multiThread/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
+    
+    <li>
+      <h2 class="post-list__post-title post-title"><a href="/2018/10/reentrantLock/" title="访问 ReentrantLock vs Synchronized">ReentrantLock vs Synchronized</a></h2>
+      <p class="excerpt">可重入锁的ReentrantLock vs Synchronized实现原理Synchronized: jdk 的关键字， 锁的功能是jdk对改关键字实现了特殊的功能. ReentrantLock: 出自jdk , 作者doug lea . 是代码的业务逻辑实现的锁的功能， 底层是基于AQS.区别：Synchronized是编译器去保证加锁和释放锁， 而ReentrantLock 需要调用者手动加锁释放锁， 一般需要在fianllly 代码块加入释放锁。从锁的颗粒度来说： 后者优于前者Re...&hellip;</p>
+      <div class="post-list__meta">        
+        <time datetime="2018-10-18 08:47:00 +0000" class="post-list__meta--date date">
+          <img src="/images/calendar.png" width="20px" /> 
+          2018-10-18</time> 
+        <div class = "tag-img-icon">
+          <img src="/images/tag-icon.svg" width="20px" /> 
+        </div>
+        <a href="/tags">
+          <div class = "post-list-icon-mate">
+            <span class="post-list__meta--tags-right">java</span>
+          </div>
+          <div class = "post-list-small-mate">
+          <a class="btn-border-small" href=/2018/10/reentrantLock/>阅读全文 » </a>
+          </div>
+      </div>
+      <hr class="post-list__divider" />
+    </li>
     
     <li>
       <h2 class="post-list__post-title post-title"><a href="/2018/10/javaLock/" title="访问 乐观锁vs悲观锁">乐观锁vs悲观锁</a></h2>

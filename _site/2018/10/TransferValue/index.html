@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>搭建Jekylly博客</title>
-  <meta name="description" content="今天第一次尝试搭建一个github博客页面，大概的步骤如下1.选择一个你喜欢的jekyll模板并且clone到本地。2.安装ruby(我是windows版本的)，下载安装包直接安装， 检查： ruby -v 出现版本则为成功。3.安装jekyll:  gem install jekyll;  jekyll -v:...">
+  <title>值转递vs址传递</title>
+  <meta name="description" content="直接上代码———————————">
   <meta name="author" content="ninuxGithub">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="搭建Jekylly博客">
-  <meta name="twitter:description" content="今天第一次尝试搭建一个github博客页面，大概的步骤如下1.选择一个你喜欢的jekyll模板并且clone到本地。2.安装ruby(我是windows版本的)，下载安装包直接安装， 检查： ruby -v 出现版本则为成功。3.安装jekyll:  gem install jekyll;  jekyll -v:...">
+  <meta name="twitter:title" content="值转递vs址传递">
+  <meta name="twitter:description" content="直接上代码———————————">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="搭建Jekylly博客">
-  <meta property="og:description" content="今天第一次尝试搭建一个github博客页面，大概的步骤如下1.选择一个你喜欢的jekyll模板并且clone到本地。2.安装ruby(我是windows版本的)，下载安装包直接安装， 检查： ruby -v 出现版本则为成功。3.安装jekyll:  gem install jekyll;  jekyll -v:...">
+  <meta property="og:title" content="值转递vs址传递">
+  <meta property="og:description" content="直接上代码———————————">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/09/establishBlog/">
+  <link rel="canonical" href="http://localhost:4000/2018/10/TransferValue/">
   <link rel="alternate" type="application/rss+xml" title="ninuxGithub" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -167,10 +167,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">搭建Jekylly博客</h1>
+    <h1 class="post-title">值转递vs址传递</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2018-09-15 17:13:06 +0000" itemprop="datePublished" class="post-meta__date date">2018-09-15</time>  
+      <time datetime="2018-10-23 09:11:34 +0000" itemprop="datePublished" class="post-meta__date date">2018-10-23</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -178,26 +178,70 @@
   </header>
 
   <section class="post">
-    <div class="highlighter-rouge"><pre class="highlight"><code>今天第一次尝试搭建一个github博客页面，大概的步骤如下
-1.选择一个你喜欢的jekyll模板并且clone到本地。
-2.安装ruby(我是windows版本的)，下载安装包直接安装， 检查： ruby -v 出现版本则为成功。
-3.安装jekyll:  gem install jekyll;  jekyll -v: 出现版本则为成功；
-4.可能需要安装bundler: gem install bundler   
-5.本地启动项目： jekyll server  如果没有报错则启动成功；  
+    <hr />
+<p>直接上代码
+———————————</p>
+
+<div class="language-java highlighter-rouge"><pre class="highlight"><code>
+<span class="cm">/**
+ * &lt;pre&gt;
+ *
+ * 总结：
+ *        1.基本数据类型是传递值的
+ *        2.引用数据类型是传递地址
+ *        3.String 是传递值的
+ *        4.StringBuffer 对象是传递址
+ * &lt;/pre&gt;
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TransferValue</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">TransferValue</span> <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TransferValue</span><span class="o">();</span>
+        <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">99</span><span class="o">;</span>
+        <span class="n">tv</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">a</span><span class="o">);</span> <span class="c1">//传递值， 原始的main中的a不会改变值</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"a :"</span> <span class="o">+</span> <span class="n">a</span><span class="o">);</span>
+
+        <span class="n">Obj</span> <span class="n">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Obj</span><span class="o">();</span> <span class="c1">//引用类型的变量传递地址</span>
+        <span class="n">test</span><span class="o">(</span><span class="n">obj</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"main 对象： "</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="na">a</span><span class="o">);</span>
+
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"java"</span><span class="o">;</span><span class="c1">//传递值， 原始的main中的s不会改变值</span>
+        <span class="n">test</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"test s main :"</span> <span class="o">+</span> <span class="n">s</span><span class="o">);</span>
 
 
-启动的参数：
-Configuration file: D:/dev/live2/blog/_config.yml
-            Source: D:/dev/live2/blog
-       Destination: D:/dev/live2/blog/_site
- Incremental build: disabled. Enable with --incremental
-      Generating...
-                    done in 0.877 seconds.
-  Please add the following to your Gemfile to avoid polling for changes:
-    gem 'wdm', '&gt;= 0.1.0' if Gem.win_platform?
- Auto-regeneration: enabled for 'D:/dev/live2/blog'
-    Server address: http://127.0.0.1:4000/blog/
-  Server running... press ctrl-c to stop.
+        <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="s">"java"</span><span class="o">);</span><span class="c1">//引用类型的变量传递地址</span>
+        <span class="n">test</span><span class="o">(</span><span class="n">sb</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"teset main sb :"</span> <span class="o">+</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="n">StringBuffer</span> <span class="n">sb</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="s">"doc"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"test sb :"</span> <span class="o">+</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
+
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="n">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="s">"doc"</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"test s: "</span> <span class="o">+</span> <span class="n">s</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="n">Obj</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">obj</span><span class="o">.</span><span class="na">a</span> <span class="o">=</span> <span class="o">++</span><span class="n">obj</span><span class="o">.</span><span class="na">a</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"对象传递："</span> <span class="o">+</span> <span class="n">obj</span><span class="o">.</span><span class="na">a</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">test</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">++</span><span class="n">a</span><span class="o">;</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"test a is : "</span> <span class="o">+</span> <span class="n">a</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Obj</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">99</span><span class="o">;</span>
+
+<span class="o">}</span>
+
+
 </code></pre>
 </div>
 
@@ -269,9 +313,14 @@ Configuration file: D:/dev/live2/blog/_config.yml
 
        <ul class="pager">
         
+        <li class="previous">
+            <a href="/2018/10/multiThread/" data-toggle="tooltip" data-placement="top" title="任务切分采用多线程执行">上一篇：  <span>任务切分采用多线程执行</span>
+            </a>
+        </li>
+        
         
         <li class="next">
-            <a href="/2018/09/jdkLambda/" data-toggle="tooltip" data-placement="top" title="jdk1.8 lambda 的使用">下一篇：  <span>jdk1.8 lambda 的使用</span>
+            <a href="/2018/10/centos65Update/" data-toggle="tooltip" data-placement="top" title="centos6.5升级内核">下一篇：  <span>centos6.5升级内核</span>
             </a>
         </li>
         
@@ -285,8 +334,8 @@ Configuration file: D:/dev/live2/blog/_config.yml
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2018/09/establishBlog/";
-        this.page.identifier = "/2018/09/establishBlog/";
+        this.page.url = "http://localhost:4000/2018/10/TransferValue/";
+        this.page.identifier = "/2018/10/TransferValue/";
     };
     var disqus_shortname = 'ninuxGithub';
     
