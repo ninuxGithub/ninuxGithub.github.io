@@ -23,6 +23,8 @@ tag: web
     添加一个想要统计的站点，然后会生成一个id
     
     然后将这个代码放入到页面内, 607730063baee35487f9b4401b19431c 就是我的区分web站点的id
+    
+    
 ```javascript
     var _hmt = _hmt || [];
     (function() {
