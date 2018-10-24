@@ -45,6 +45,7 @@ tag: docker
     
     
     
+    
     很遗憾centos 6.5在升级后无法启动docker
     
     # service docker start
@@ -57,6 +58,15 @@ tag: docker
     
     后来不知道怎么就好了， 我将4.4.162-1.el6.elrepo.x86_64内核删除了  ~~~~
     
+## docker命令
+    docker images: 查看容器中的镜像
+    docker ps -all: 运行的镜像
+    docker top id :查看镜像的状态
+    docker logs -f id :查看镜像的日志
+    docker inspect id ：查看docker底层状态 返回json
+    docker stop id : 停止某个镜像
+    docker run -p 8080:8888 docker/tomcat-nginx-balance  ： 运行一个镜像（名称为：docker/tomcat-nginx-balance）  启动在虚拟机的 8080端口  ， 部署在docker的8888端口
+    docker rm id : 删除一个镜像
     
     
     
