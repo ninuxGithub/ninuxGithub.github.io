@@ -29,7 +29,7 @@
 <!-- 站点统计 -->
   <!--<script  async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
   </script>  -->
-  <script   src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
   </script>
 
 <!-- 百度统计 -->
@@ -39,12 +39,20 @@
       (function() {
         var hm = document.createElement("script");
         hm.src = "//hm.baidu.com/hm.js?{{site.baidu.id}}";
-        var s = document.getElementsByTagName("script")[0]; 
+        var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
       })();
-  </script>
-  {% endif %}
 
+
+
+      <!--
+        老版本的百度统计：显示图标
+      -->
+      /*var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+      document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F{{site.baidu.id}}' type='text/javascript'%3E%3C/script%3E"));
+      */
+
+  </script>
 <!-- google 统计 -->
 <!--  {% if site.ga.id %}
   <script>
