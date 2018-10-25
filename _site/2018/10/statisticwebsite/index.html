@@ -6,17 +6,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <title>docer部署springboot项目</title>
-  <meta name="description" content="配置项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.gitdocker发布项目：https://www.cnblogs.com/ityouknow/p/8599093.html https://www.jianshu.com/p/efd70ad53...">
+  <title>站点统计</title>
+  <meta name="description" content="站点统计计数采用仆算子博客地址：https://www.jianshu.com/p/e3d9f6777fb8">
   <meta name="author" content="ninuxGithub">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="docer部署springboot项目">
-  <meta name="twitter:description" content="配置项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.gitdocker发布项目：https://www.cnblogs.com/ityouknow/p/8599093.html https://www.jianshu.com/p/efd70ad53...">
+  <meta name="twitter:title" content="站点统计">
+  <meta name="twitter:description" content="站点统计计数采用仆算子博客地址：https://www.jianshu.com/p/e3d9f6777fb8">
   
   <meta property="og:type" content="article">
-  <meta property="og:title" content="docer部署springboot项目">
-  <meta property="og:description" content="配置项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.gitdocker发布项目：https://www.cnblogs.com/ityouknow/p/8599093.html https://www.jianshu.com/p/efd70ad53...">
+  <meta property="og:title" content="站点统计">
+  <meta property="og:description" content="站点统计计数采用仆算子博客地址：https://www.jianshu.com/p/e3d9f6777fb8">
   
   <link rel="icon" type="image/png" href="/images/favicon.png" />
   <link href="/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <link rel="canonical" href="http://localhost:4000/2018/10/dockerPublishProject/">
+  <link rel="canonical" href="http://localhost:4000/2018/10/statisticwebsite/">
   <link rel="alternate" type="application/rss+xml" title="ninuxGithub" href="http://localhost:4000/feed.xml">
   
   <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
@@ -176,10 +176,10 @@
         <div class="content-wrapper__inner">
             <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
   <header class="post-header">
-    <h1 class="post-title">docer部署springboot项目</h1>
+    <h1 class="post-title">站点统计</h1>
     <div class="post-meta">
       <img src="/images/calendar.png" width="20px"/> 
-      <time datetime="2018-10-23 14:10:13 +0000" itemprop="datePublished" class="post-meta__date date">2018-10-23</time>  
+      <time datetime="2018-10-24 14:01:58 +0000" itemprop="datePublished" class="post-meta__date date">2018-10-24</time>  
          
       <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
     </p>
@@ -187,68 +187,40 @@
   </header>
 
   <section class="post">
-    <h2 id="配置">配置</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.git
-docker发布项目：
-https://www.cnblogs.com/ityouknow/p/8599093.html 
-https://www.jianshu.com/p/efd70ad53602
+    <h2 id="站点统计计数">站点统计计数</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>采用仆算子
+博客地址：https://www.jianshu.com/p/e3d9f6777fb8
 
-安装docker,maven,jdk,git 
-maven仓库配置为阿里云的仓库比较快
-开始发布
-mvn package docker:build
+js加入
+&lt;script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"&gt;&lt;/script&gt;
 
-docker images: 显示多有的镜像
-docker rmi -f id :删除镜像
-
-
-docker/tomcat-nginx-balance 是镜像的名称， 该项目是spring boot 项目 启动的端口是8888  项目的名称为：tomcatNginxBalance
-
-运行镜像
-docker run -p 8080:8888 docker/tomcat-nginx-balance
-
--p 8080:8888:将docker的项目映射到虚拟机的8080端口
-访问项目地址：http://xxx.xxx.xx.xx:8080/tomcatNginxBalance/index.html
-xxx.xxx.xx.xx：是虚拟机的ip 
-8080:访问虚拟机的8080端口
-tomcatNginxBalance：项目的名称
-启动成功了
-
-docker ps -all
-CONTAINER ID        IMAGE                         COMMAND                CREATED             STATUS              PORTS                    NAMES
-4d2c81db1cb2        docker/tomcat-nginx-balance   "java -Djava.securit   18 seconds ago      Up 17 seconds       0.0.0.0:8080-&gt;8888/tcp   trusting_pasteur    
-
-
-
-看到了PORTS 字段有： 0.0.0.0:8080-&gt;8888/tcp 标示映射成功了可以对外访问了
-
-
-
-
-
-很遗憾centos 6.5在升级后无法启动docker
-
-# service docker start
-Starting cgconfig service: Error: cannot mount cpuset to /cgroup/cpuset: Device or resource busy
-/sbin/cgconfigparser; error loading /etc/cgconfig.conf: Cgroup mounting failed
-Failed to parse /etc/cgconfig.conf or /etc/cgconfig.d[失败]
-Starting docker:        [确定]
-
-
-
-后来不知道怎么就好了， 我将4.4.162-1.el6.elrepo.x86_64内核删除了  ~~~~
+html页面为：
+&lt;span id="busuanzi_container_page_pv"&gt; | 阅读：&lt;span id="busuanzi_value_page_pv"&gt;&lt;/span&gt;次&lt;/span&gt;
 </code></pre>
 </div>
 
-<h2 id="docker命令">docker命令</h2>
-<div class="highlighter-rouge"><pre class="highlight"><code>docker images: 查看容器中的镜像
-docker ps -all: 运行的镜像
-docker top id :查看镜像的状态
-docker logs -f id :查看镜像的日志
-docker inspect id ：查看docker底层状态 返回json
-docker stop id : 停止某个镜像
-docker run -p 8080:8888 docker/tomcat-nginx-balance  ： 运行一个镜像（名称为：docker/tomcat-nginx-balance）  启动在虚拟机的 8080端口  ， 部署在docker的8888端口
-docker rm id : 删除一个镜像
+<h2 id="百度统计">百度统计</h2>
+<div class="highlighter-rouge"><pre class="highlight"><code>注册一个百度统计的账号：https://tongji.baidu.com/web/welcome/login
+添加一个想要统计的站点，然后会生成一个id
+
+然后将这个代码放入到页面内, 607730063baee35487f9b4401b19431c 就是我的区分web站点的id
+</code></pre>
+</div>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="kd">var</span> <span class="nx">_hmt</span> <span class="o">=</span> <span class="nx">_hmt</span> <span class="o">||</span> <span class="p">[];</span>
+    <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">hm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span>
+      <span class="nx">hm</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"https://hm.baidu.com/hm.js?607730063baee35487f9b4401b19431c"</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"script"</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> 
+      <span class="nx">s</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">hm</span><span class="p">,</span> <span class="nx">s</span><span class="p">);</span>
+    <span class="p">})();</span>
+
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>怎么判断是否安装统计js成功呢？
+访问被统计的web站点， f12 查看network 里面是否有调用过hm.js?607730063baee35487f9b4401b19431c&amp;xxxx
+如果有就代表成功了~~~~~
 </code></pre>
 </div>
 
@@ -321,15 +293,10 @@ docker rm id : 删除一个镜像
        <ul class="pager">
         
         <li class="previous">
-            <a href="/2018/10/centos65Update/" data-toggle="tooltip" data-placement="top" title="centos6.5升级内核">上一篇：  <span>centos6.5升级内核</span>
+            <a href="/2018/10/jvmDataStruct/" data-toggle="tooltip" data-placement="top" title="jvm内存结构">上一篇：  <span>jvm内存结构</span>
             </a>
         </li>
         
-        
-        <li class="next">
-            <a href="/2018/10/jvmDataStruct/" data-toggle="tooltip" data-placement="top" title="jvm内存结构">下一篇：  <span>jvm内存结构</span>
-            </a>
-        </li>
         
     </ul>
 </section>
@@ -341,8 +308,8 @@ docker rm id : 删除一个镜像
     <script>
     
     var disqus_config = function () {
-        this.page.url = "http://localhost:4000/2018/10/dockerPublishProject/";
-        this.page.identifier = "/2018/10/dockerPublishProject/";
+        this.page.url = "http://localhost:4000/2018/10/statisticwebsite/";
+        this.page.identifier = "/2018/10/statisticwebsite/";
     };
     var disqus_shortname = 'ninuxGithub';
     

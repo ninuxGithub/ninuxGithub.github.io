@@ -2,9 +2,9 @@
 title: jvm内存结构
 author: ninuxGithub
 layout: post
-date: 2018-10-24 16:26:43
+date: 2018-10-24 08:26:16
 description: "jvm内存结构"
-tag: jvm
+tag: java
 ---
 
 
