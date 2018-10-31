@@ -3,19 +3,15 @@ layout: page
 title: 关于我 
 ---
 
-一个热爱 Java 开发者，喜欢研究一些新技术。
+一个热爱 Java 开发者, 熟悉spring boot, 目前在学习研究spring cloud。
 <p>
-平时喜欢整理个人博客，逛逛技术论坛。
+平时喜欢整理个人博客，逛逛技术论坛，将自己的学习心得分享到github,gitee。
 <p>
-了解一些 前端 基本概念和 Python 的简单用法。
+熟悉light框架（vue）, vue + webpack ,themeleaf 等前台技术， angular了解过一点。
 
 <p>
 
-<h3> 我们的博客 </h3>  
-
-<p>
-
-是的，这个博客是我们大家的，目前已经有很大一部分人在使用我的博客模板了，我也很高兴大家使用我的模板。
+<h3> 我的博客 </h3>  
 
 <p>
 
