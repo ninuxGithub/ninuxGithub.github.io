@@ -191,7 +191,96 @@ private void finishCompletion() {
 }
 
 ```   
-   
+
+
+
+
+## 测试类如下
+
+```java
+public class ThreadPoolTest {
+
+    //static ExecutorService executor = Executors.newFixedThreadPool(5);
+    static ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 8, 200,
+            TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5), new ThreadPoolExecutor.CallerRunsPolicy());
+
+    public static void main(String[] args) {
+        Task task = new Task("java");
+        for (int i = 0; i < 100; i++) {
+            executor.execute(task);
+            System.out.println("poolSize:" + executor.getPoolSize() + " 等待执行任务的数量：" + executor.getQueue().size() + " 执行完毕的任务量：" + executor.getCompletedTaskCount());
+        }
+
+        executor.shutdown();
+    }
+
+}
+
+
+class Task implements Runnable {
+
+    private String name;
+
+    public Task(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(Thread.currentThread().getName() + " " + name);
+    }
+}
+
+
+
+public class App {
+	static ThreadPoolExecutor executor = new ThreadPoolExecutor(5, 8, 200, TimeUnit.MILLISECONDS,
+			new ArrayBlockingQueue<Runnable>(5), new ThreadPoolExecutor.CallerRunsPolicy());
+
+	public static void main(String[] args) {
+
+		System.out.println("开始计算");
+		Future<String> future = executor.submit(new Task());
+		try {
+			boolean isDone = future.isDone();
+			while (!isDone) {
+				isDone = future.isDone();
+				System.out.println("在计算中.....");
+				Thread.sleep(100);
+			}
+			System.out.println(future.get());
+			System.out.println("计算完毕");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			e.printStackTrace();
+		}
+		executor.shutdown();
+	}
+}
+
+class Task implements Callable<String> {
+
+	public String call() throws Exception {
+		TimeUnit.MINUTES.sleep(5);
+		return "java";
+	}
+
+}
+
+
+
+
+
+
+
+
+```   
 
          
       
