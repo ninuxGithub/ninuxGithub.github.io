@@ -61,11 +61,17 @@ tag: java
    代码如下：  submit(Runnable) 是调用的execute 方法
    
 ```java
-public Future<?> submit(Runnable task) {
-    if (task == null) throw new NullPointerException();
-    RunnableFuture<Void> ftask = newTaskFor(task, null);
-    execute(ftask);
-    return ftask;
+
+class AbstractQueuedSynchronizer{
+    
+    //.......
+    
+    public Future<?> submit(Runnable task) {
+        if (task == null) throw new NullPointerException();
+        RunnableFuture<Void> ftask = newTaskFor(task, null);
+        execute(ftask);
+        return ftask;
+    }
 }
 ``` 
 
@@ -79,115 +85,116 @@ public Future<?> submit(Runnable task) {
    然后get就可以获取结果了
 
 ```java
-
-public void run() {
-    if (state != NEW ||
-        !UNSAFE.compareAndSwapObject(this, runnerOffset,
-                                     null, Thread.currentThread()))
-        return;
-    try {
-        Callable<V> c = callable;
-        if (c != null && state == NEW) {
-            V result;
-            boolean ran;
-            try {
-                result = c.call();
-                ran = true;
-            } catch (Throwable ex) {
-                result = null;
-                ran = false;
-                setException(ex);
-            }
-            if (ran)
-                set(result);
-        }
-    } finally {
-        // runner must be non-null until state is settled to
-        // prevent concurrent calls to run()
-        runner = null;
-        // state must be re-read after nulling runner to prevent
-        // leaked interrupts
-        int s = state;
-        if (s >= INTERRUPTING)
-            handlePossibleCancellationInterrupt(s);
-    }
-}
-public V get() throws InterruptedException, ExecutionException {
-    int s = state;
-    if (s <= COMPLETING)
-        s = awaitDone(false, 0L);
-    return report(s);
-}
-
-
-private int awaitDone(boolean timed, long nanos) throws InterruptedException {
-    final long deadline = timed ? System.nanoTime() + nanos : 0L;
-    WaitNode q = null;
-    boolean queued = false;
-    for (;;) {
-        if (Thread.interrupted()) {
-            removeWaiter(q);
-            throw new InterruptedException();
-        }
-
-        int s = state;
-        if (s > COMPLETING) {
-            if (q != null)
-                q.thread = null;
-            return s;
-        }
-        else if (s == COMPLETING) // cannot time out yet
-            Thread.yield();
-        else if (q == null)
-            q = new WaitNode(); //初始化等待的节点
-        else if (!queued)
-            queued = UNSAFE.compareAndSwapObject(this, waitersOffset,
-                                                 q.next = waiters, q);
-        else if (timed) {
-            nanos = deadline - System.nanoTime();
-            if (nanos <= 0L) {
-                removeWaiter(q);
-                return state;
-            }
-            LockSupport.parkNanos(this, nanos);
-        }
-        else
-            LockSupport.park(this); // park 住了 阻塞在这里 ， 那么什么时候唤醒呢？
-            
-            
-            //一个unpark,可以抵消过去的一个park或者将来的一个park。
-            //多个unpark,可以抵消过去的多个park。
-            //多个unpark,不可以抵消将来的多个park。
-        
-    }
-}
-
-
-
-//在run方法执行完毕后  会调用set方法--->在调用finishCompletion
-private void finishCompletion() {
-    // assert state > COMPLETING;
-    for (WaitNode q; (q = waiters) != null;) {
-        if (UNSAFE.compareAndSwapObject(this, waitersOffset, q, null)) {
-            for (;;) {
-                Thread t = q.thread;
-                if (t != null) {
-                    q.thread = null;
-                    LockSupport.unpark(t);   //在run 执行完毕后  在这个地方做了unpark 解除了阻塞
+class FutureTask{
+    public void run() {
+        if (state != NEW ||
+            !UNSAFE.compareAndSwapObject(this, runnerOffset,
+                                         null, Thread.currentThread()))
+            return;
+        try {
+            Callable<V> c = callable;
+            if (c != null && state == NEW) {
+                V result;
+                boolean ran;
+                try {
+                    result = c.call();
+                    ran = true;
+                } catch (Throwable ex) {
+                    result = null;
+                    ran = false;
+                    setException(ex);
                 }
-                WaitNode next = q.next;
-                if (next == null)
-                    break;
-                q.next = null; // unlink to help gc
-                q = next;
+                if (ran)
+                    set(result);
             }
-            break;
+        } finally {
+            // runner must be non-null until state is settled to
+            // prevent concurrent calls to run()
+            runner = null;
+            // state must be re-read after nulling runner to prevent
+            // leaked interrupts
+            int s = state;
+            if (s >= INTERRUPTING)
+                handlePossibleCancellationInterrupt(s);
         }
     }
-
-    done();
-
-    callable = null;        // to reduce footprint
+    public V get() throws InterruptedException, ExecutionException {
+        int s = state;
+        if (s <= COMPLETING)
+            s = awaitDone(false, 0L);
+        return report(s);
+    }
+    
+    
+    private int awaitDone(boolean timed, long nanos) throws InterruptedException {
+        final long deadline = timed ? System.nanoTime() + nanos : 0L;
+        WaitNode q = null;
+        boolean queued = false;
+        for (;;) {
+            if (Thread.interrupted()) {
+                removeWaiter(q);
+                throw new InterruptedException();
+            }
+    
+            int s = state;
+            if (s > COMPLETING) {
+                if (q != null)
+                    q.thread = null;
+                return s;
+            }
+            else if (s == COMPLETING) // cannot time out yet
+                Thread.yield();
+            else if (q == null)
+                q = new WaitNode(); //初始化等待的节点
+            else if (!queued)
+                queued = UNSAFE.compareAndSwapObject(this, waitersOffset,
+                                                     q.next = waiters, q);
+            else if (timed) {
+                nanos = deadline - System.nanoTime();
+                if (nanos <= 0L) {
+                    removeWaiter(q);
+                    return state;
+                }
+                LockSupport.parkNanos(this, nanos);
+            }
+            else
+                LockSupport.park(this); // park 住了 阻塞在这里 ， 那么什么时候唤醒呢？
+                
+                
+                //一个unpark,可以抵消过去的一个park或者将来的一个park。
+                //多个unpark,可以抵消过去的多个park。
+                //多个unpark,不可以抵消将来的多个park。
+            
+        }
+    }
+    
+    
+    
+    //在run方法执行完毕后  会调用set方法--->在调用finishCompletion
+    private void finishCompletion() {
+        // assert state > COMPLETING;
+        for (WaitNode q; (q = waiters) != null;) {
+            if (UNSAFE.compareAndSwapObject(this, waitersOffset, q, null)) {
+                for (;;) {
+                    Thread t = q.thread;
+                    if (t != null) {
+                        q.thread = null;
+                        LockSupport.unpark(t);   //在run 执行完毕后  在这个地方做了unpark 解除了阻塞
+                    }
+                    WaitNode next = q.next;
+                    if (next == null)
+                        break;
+                    q.next = null; // unlink to help gc
+                    q = next;
+                }
+                break;
+            }
+        }
+    
+        done();
+    
+        callable = null;        // to reduce footprint
+    }
 }
 
 ```   
