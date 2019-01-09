@@ -7,6 +7,16 @@ description: "TransmittableThreadLocal使用"
 tag: java
 ---
 
+添加依赖
+
+```xml
+<dependency>
+    <groupId>com.alibaba</groupId>
+    <artifactId>transmittable-thread-local</artifactId>
+    <version>2.2.0</version>
+</dependency>
+```
+
 ```java
 package com.example.demo.test;
 
