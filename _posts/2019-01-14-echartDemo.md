@@ -7,7 +7,7 @@ description: "echart折线图，柱状图，雷达图"
 tag: js
 ---
 
-## 页面的结果
+## 页面的结构
 
 ```html
 <!DOCTYPE html>
