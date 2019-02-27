@@ -242,6 +242,10 @@ public class PublishController {
     http://localhost:9091/publish/queue 发送的是queue消息， 并且会给生产端一个反馈的消息（相当于一个confrim, 消息确认）
 
 
+### 项目代码
+    https://github.com/ninuxGithub/spring-boot-dubbo-zookeeper
+    
+
 ### reference
     https://www.cnblogs.com/elvinle/p/8457596.html
     https://www.cnblogs.com/Alex-zqzy/p/9558857.html
