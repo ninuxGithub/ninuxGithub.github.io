@@ -1,9 +1,9 @@
 ---
-title: activemq 使用
+title: spring boot + activemq
 author: ninuxGithub
 layout: post
 date: 2019-2-27 17:47:23
-description: "activemq 使用"
+description: "spring boot + activemq"
 tag: redis
 ---
 
