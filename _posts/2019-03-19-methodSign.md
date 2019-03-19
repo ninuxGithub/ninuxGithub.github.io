@@ -384,6 +384,9 @@ public class ApiAccessFilter implements Filter {
     测试请求：http://localhost:9090/api/test
    
     pom 借助了腾讯云的签名的jar
+    
+    intellij idea 在反射获取参数名称的时候， 都是arg0 ...
+    解决方案： https://blog.csdn.net/royal_lr/article/details/52279993
 
     项目启动的方法
     本地启动activeMQ , zookeeper 
