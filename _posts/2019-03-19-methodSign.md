@@ -381,6 +381,7 @@ public class ApiAccessFilter implements Filter {
 
 
 ### 友情提示
+    测试请求：http://localhost:9090/api/test
    
     pom 借助了腾讯云的签名的jar
 
