@@ -10,44 +10,44 @@ tag: java
 
 
 ### spring boot mybatis 运行过程
-MyBatisAutoConfiguration -->sqlSessionFactory（dataSource）方法会去创建一个SqlSessoinFactoryBean
-SqlSessionFactoryBean  -->afterPropertiesSet 
-                       -->buildSqlSessionFactory 
-                                -->xmlConfigBuilder.parse()解析mybatis Config
-                                -->xmlMapperBuilder.parse()解析mybatis XML Mapper
-                                -->this.sqlSessionFactoryBuilder.build(configuration) 创建一个SqlSessionFactory对象返回
-
-XMLMapperBuilder -->   parse() 
-                            -->   bindMapperForNamespace() 创建namespace底下的mapper            
-
-MapperRegistry --> addMapper()
-                    -->new MapperProxyFactory(type)  jdk 动态代理   
-                        -->new MapperProxy<T>(sqlSession, mapperInterface, methodCache)
-                            -->invoke 目标方法代理
-                                -->mapperMethod.execute(sqlSession, args)
-
-MapperMethod -- >  execute() 判断执行查询，插入，删除，还是修改    
-
-SqlSessionTemplate --select()
-                        -->sqlSessionProxy.select 通过代理来select
-                               -->代理类SqlSessionInterceptor invoke 开启查询 jdk 动态代理
-如何代理的呢？
-method.invoke(sqlSession, args); 就是sqlSession 对象发起一个查询动作， 调用selectList 方法                          
-spring boot 回去调用 DefaultSqlSession  , DefaultSqlSession 是SqlSession的默认的实现类
-DefaultSqlSession.selectList()
-    --->CachingExecutor.query()
-    ---> BaseExecutor.query()
-    ---> BaseExecutor.QueryFromDataBase()
-    ---> SimpleExecutor.doQuery()
-    ---> RoutingStatmentHandler.query()
-    ---> PreparedStatementHandler.query()
-
-
-那么SqlSession 是如何获取的呢?
-可以看看SqlSessionUtils 通过holder的思想将sqlSession维护起来
-
-
-org.apache.ibatis.session.Configuration 是一个中央控制器，负责控制和协调mybatis的bean的创建和调用
+    MyBatisAutoConfiguration -->sqlSessionFactory（dataSource）方法会去创建一个SqlSessoinFactoryBean
+    SqlSessionFactoryBean  -->afterPropertiesSet 
+                           -->buildSqlSessionFactory 
+                                    -->xmlConfigBuilder.parse()解析mybatis Config
+                                    -->xmlMapperBuilder.parse()解析mybatis XML Mapper
+                                    -->this.sqlSessionFactoryBuilder.build(configuration) 创建一个SqlSessionFactory对象返回
+    
+    XMLMapperBuilder -->   parse() 
+                                -->   bindMapperForNamespace() 创建namespace底下的mapper            
+    
+    MapperRegistry --> addMapper()
+                        -->new MapperProxyFactory(type)  jdk 动态代理   
+                            -->new MapperProxy<T>(sqlSession, mapperInterface, methodCache)
+                                -->invoke 目标方法代理
+                                    -->mapperMethod.execute(sqlSession, args)
+    
+    MapperMethod -- >  execute() 判断执行查询，插入，删除，还是修改    
+    
+    SqlSessionTemplate --select()
+                            -->sqlSessionProxy.select 通过代理来select
+                                   -->代理类SqlSessionInterceptor invoke 开启查询 jdk 动态代理
+    如何代理的呢？
+    method.invoke(sqlSession, args); 就是sqlSession 对象发起一个查询动作， 调用selectList 方法                          
+    spring boot 回去调用 DefaultSqlSession  , DefaultSqlSession 是SqlSession的默认的实现类
+    DefaultSqlSession.selectList()
+        --->CachingExecutor.query()
+        ---> BaseExecutor.query()
+        ---> BaseExecutor.QueryFromDataBase()
+        ---> SimpleExecutor.doQuery()
+        ---> RoutingStatmentHandler.query()
+        ---> PreparedStatementHandler.query()
+    
+    
+    那么SqlSession 是如何获取的呢?
+    可以看看SqlSessionUtils 通过holder的思想将sqlSession维护起来
+    
+    
+    org.apache.ibatis.session.Configuration 是一个中央控制器，负责控制和协调mybatis的bean的创建和调用
 
 
 调用的java类如下
