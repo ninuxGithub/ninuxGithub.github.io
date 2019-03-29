@@ -29,7 +29,7 @@ SqlSessionFactoryBean 实现了 InitailizationBean
     }
 
 
-	//XMLConfigBuilder 的方法如下
+	//XMLMapperBuilder 的方法如下
 public void parse() {
 	if (!configuration.isResourceLoaded(resource)) {
 	  configurationElement(parser.evalNode("/mapper"));
