@@ -4,7 +4,7 @@ author: ninuxGithub
 layout: post
 date: 2019-3-27 18:41:49
 description: "spring boot mybatis 运行分析"
-tag: java
+tag: mybatis
 ---
 
 

@@ -4,7 +4,7 @@ author: ninuxGithub
 layout: post
 date: 2019-3-19 08:55:20
 description: "公共aip方法签名"
-tag: dubbo
+tag: java
 ---
 
 

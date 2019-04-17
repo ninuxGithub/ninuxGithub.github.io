@@ -4,7 +4,7 @@ author: ninuxGithub
 layout: post
 date: 2018-12-20 18:30:09
 description: "spring boot 2.x 使用LCN"
-tag: spring-cloud
+tag: tx
 ---
 
 ## myIsam & InnoDB

@@ -4,7 +4,7 @@ author: ninuxGithub
 layout: post
 date: 2019-2-28 08:58:15
 description: "Transaction 事物笔记"
-tag: redis
+tag: tx
 ---
     
 
