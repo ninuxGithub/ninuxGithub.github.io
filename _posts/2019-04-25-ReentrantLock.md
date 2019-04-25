@@ -177,6 +177,7 @@ static final class Node {
     fair 为false 的时候创建一个非公平锁  sync = new NonfairSync();
     
     然后分析一下公平锁/非公平锁是如何加锁和释放锁的呢？
+    
 ### 加锁
     
     lock()  --> sync.lock(); 
