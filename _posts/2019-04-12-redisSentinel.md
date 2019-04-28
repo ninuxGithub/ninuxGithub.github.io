@@ -110,7 +110,7 @@ sentinel parallel-syncs mymaster 2
     
     
     细节描述： 当启动3个节点的时候  redis 会自动的修改我们的conf文件 ， 会追加一下配置文件类确定slave master信息
-    请观察 sentinel.conf 文件  会有自动注解的configuration代码
+    请观察 sentinel.conf 文件  会有自动添加的代码
     
     摸索了很久查阅了一下博客才知道的
     
