@@ -45,6 +45,37 @@ tag: docker
     openjdk                       8-jdk-alpine        3675b9f543c5        3 weeks ago         105MB
     观测到docker.image.prefix是镜像名称的前缀
     
+   
+   
+   
+### intellij项目部署到centos
+    需要docker开启以一个tcp的监听
+    vim /usr/lib/systemd/system/docker.service
+    
+    在ExecStart=/usr/bin/dockerd-current 后面加上
+    
+    -H tcp://0.0.0.0:2375 -H unix://var/run/docker.sock
+    
+    然后
+    systemctl daemon-reload
+    systemctl start docker
+    
+    然后对项目打包 ， 运行docker项目
+   
+  ![echart docker 项目部署](/images/posts/docker-intellij.png)
+  
+    启动项目成功后 项目会被部署到centos 
+    访问http://10.1.51.240:8080/tomcatNginxBalance/index.html 可以观察到ok部署成功
+    项目被成功的通过docker容器启动了，项目会在docker中形成一个镜像文件
+    
+    docker images 查看所有的镜像
+    
+    docker ps -a 查启动的项目程序   在port有对外映射的端口信息说明ok了
+    
+    参考了https://blog.csdn.net/jackcheng1117/article/details/83080303
+    
+    
+    
     
     
     
