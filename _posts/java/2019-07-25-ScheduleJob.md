@@ -91,7 +91,8 @@ public class ScheduleService {
 //    5. Month （月）
 //    6. Day-of-Week （周）
 //    7. Year (年 可选字段)
-    @Scheduled(cron = "0/10 * * * *  ?")
+    //每天凌晨开始执行job, 如果探测到之前有同名的job则继续删除
+    @Scheduled(cron = "0 0 0 * *  ?")
     public void runJob(){
         startJob("7:17","15:38",5, new QuartzJob(targetJob, "testSchedule"));
 
@@ -150,6 +151,60 @@ public class ScheduleService {
     }
 
 }
+
+
+/**
+ * @author shenzm
+ * @date 2019-7-24
+ * @description 作用
+ */
+public class QuartzJob implements Job {
+
+    private Object target;
+
+    private String targetMethod;
+
+    public QuartzJob(){}
+
+    public QuartzJob(Object target, String targetMethod) {
+        this.target = target;
+        this.targetMethod = targetMethod;
+    }
+
+    public Object getTarget() {
+        return target;
+    }
+
+    public String getTargetMethod() {
+        return targetMethod;
+    }
+
+    /**
+     * 无法通过构造器来进行参数的传递， 只有通过DataMap来进行参数的传递
+     * @param context
+     * @throws JobExecutionException
+     */
+    @Override
+    public void execute(JobExecutionContext context) throws JobExecutionException {
+        JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
+        target = jobDataMap.get("target");
+        targetMethod = jobDataMap.getString("method");
+        if(null != target && StringUtils.isNotEmpty(targetMethod)){
+            Class<?> clazz = target.getClass();
+            try {
+                Method method = clazz.getMethod(targetMethod, new Class[]{});
+                method.invoke(target,new Object[]{});
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
 
 
 @Component
