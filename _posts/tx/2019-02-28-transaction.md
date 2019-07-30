@@ -27,6 +27,8 @@ tag: tx
     repeatable read : 重复的，读完后加锁， 但是如果有insert 事物的提交会有幻读
     
     serializable: 串行化的执行事物；
+    
+    2019-7-30 18:40:44更新参考了https://www.cnblogs.com/yubaolee/p/10398633.html
 
 第一类丢失： 有2个事物开始更新同一个记录， 有个事物更新成功了， 
             另外一个事物失败导致了回滚，导致成功的事物的数据也丢失了
