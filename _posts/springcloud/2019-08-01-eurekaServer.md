@@ -363,7 +363,12 @@ class DiscoveryClient {
         }
     }
     
-    
+}
+
+
+class InstanceInfoReplicator implements Runnable {
+
+    //根据要求来更新服务： 根据什么要求呢？ 根据服务状态的要求 上面那个监听服务的状态的地方调用了
     public boolean onDemandUpdate() {
         if (rateLimiter.acquire(burstSize, allowedRatePerMinute)) {
             if (!scheduler.isShutdown()) {
@@ -377,7 +382,7 @@ class DiscoveryClient {
                             logger.debug("Canceling the latest scheduled update, it will be rescheduled at the end of on demand update");
                             latestPeriodic.cancel(false);
                         }
-                        //调用了run方法 ，可以debug进入看看， 发现调用了discoveryClient.register();进行了服务的注册
+    
                         InstanceInfoReplicator.this.run();
                     }
                 });
@@ -391,9 +396,28 @@ class DiscoveryClient {
             return false;
         }
     }
-    
-}
 
+    public void run() {
+        try {
+            //刷新实例的信息， 获取实例的状态，调用HealthCheckHandler进行服务监控状态检查汇报给health端点
+            //status = getHealthCheckHandler().getStatus(instanceInfo.getStatus());
+            discoveryClient.refreshInstanceInfo();
+
+            Long dirtyTimestamp = instanceInfo.isDirtyWithTime();
+            if (dirtyTimestamp != null) {
+                //服务的注册
+                discoveryClient.register();
+                instanceInfo.unsetIsDirty(dirtyTimestamp);
+            }
+        } catch (Throwable t) {
+            logger.warn("There was a problem with the instance info replicator", t);
+        } finally {
+            Future next = scheduler.schedule(this, replicationIntervalSeconds, TimeUnit.SECONDS);
+            scheduledPeriodicRef.set(next);
+        }
+    }
+
+}
 
 
 /*
@@ -460,6 +484,7 @@ public class EurekaServiceRegistry implements ServiceRegistry<EurekaRegistration
 	}
 
 }
+
 
 ```
 
