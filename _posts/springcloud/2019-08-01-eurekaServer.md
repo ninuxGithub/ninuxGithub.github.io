@@ -258,7 +258,7 @@ class DiscoveryClient {
 
         // finally, init the schedule tasks (e.g. cluster resolvers, heartbeat, instanceInfo replicator, fetch
         //java doc : 开始我们的心跳服务，服务缓存更新的任务开始调度了任务线程为CacheRefreshThread ， HeartbeatThread 这个不在看了
-        //内部是通过多线程，使用eurekaTransport获取到的EurekaHttpClient发起请求进行访问的续租和服务心跳的发送
+        //内部是通过多线程，使用eurekaTransport获取到的EurekaHttpClient发起请求进行服务的续租和服务心跳的发送
         initScheduledTasks();
 
         try {
@@ -352,7 +352,7 @@ class DiscoveryClient {
             //on-demand-update-status-change: true
             if (clientConfig.shouldOnDemandUpdateStatusChange()) {
                 //注册服务状态改变的监听器
-                //这个监听器就是如果在服务状态发生了变化的时候进行访问的状态的更新
+                //这个监听器就是如果在服务状态发生了变化的时候进行服务的状态的更新
                 //监听器的notify会被谁去调用呢？ 继续debug
                 applicationInfoManager.registerStatusChangeListener(statusChangeListener);
             }
@@ -421,9 +421,9 @@ class InstanceInfoReplicator implements Runnable {
 
 
 /*
-    如果DiscoveryClient在初始化的时候没有强制启动服务的注册， 那么会通过EurekaAutoServiceRegistration进行访问的注册，
+    如果DiscoveryClient在初始化的时候没有强制启动服务的注册， 那么会通过EurekaAutoServiceRegistration进行服务的注册，
     改类实现了SmartLifecycle : 该类有stop start会在spring 容器启动的是被调用
-    所以可以通过该类在启动的是进行访问的注册
+    所以可以通过该类在启动的是进行服务的注册
 
 
 
@@ -567,8 +567,8 @@ public class EurekaServerInitializerConfiguration
 
 ## 总结
     2019-8-1 10:08:30 更新
-    Eureka 组件提供了服务的注册和发现机制， 让我们的服务接收eureka的管理，通过定时器来执行多线程任务来进行访问缓存的更新，还有
+    Eureka 组件提供了服务的注册和发现机制， 让我们的服务接收eureka的管理，通过定时器来执行多线程任务来进行服务缓存的更新，还有
     就是进行服务心跳的发送来检查我们的服务是否是存活的；
-    EurekaAutoServiceRegistration实现了SmartLifecycle 被spring 容器启动的是进行了初始化调用start进行访问的注册动作
-    那么DiscoveryClient是通spring boot 自动配置来完成初始化加载的，提供了Eureka服务的发现机制，当然访问注册的逻辑也通过参数
+    EurekaAutoServiceRegistration实现了SmartLifecycle 被spring 容器启动的是进行了初始化调用start进行服务的注册动作
+    那么DiscoveryClient是通spring boot 自动配置来完成初始化加载的，提供了Eureka服务的发现机制，当然服务注册的逻辑也通过参数
     来强制控制服务的注册在DiscoveryClient初始化的时候就进行一次调用；
