@@ -21,7 +21,7 @@ tag: mybatis
     
     那么二级缓存怎么开启呢？
     上也描述了二级缓存是基于mapper的，二级缓存对当前的命名空间的查询进行缓存
-    需要在Mapper上面加入注解@Namespace 我们可以查看源码MapperAnnotationBuilder 可以查看详细
+    需要在Mapper上面加入注解@CachedNamespace 我们可以查看源码MapperAnnotationBuilder 可以查看详细
     
     下面通源代码分析一级缓存指的是什么
     
