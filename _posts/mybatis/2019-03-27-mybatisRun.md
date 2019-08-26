@@ -20,12 +20,18 @@ tag: mybatis
     XMLMapperBuilder -->   parse() 
                                 -->   bindMapperForNamespace() 创建namespace底下的mapper            
     
+    //扫描application中加入了@Mapper注解的bean, 通过spring boot 启动的时候来创建bean的实例对象
+    //扫描@CacheNamespace 来确定是否开启二级缓存（默认是开启一级缓存的）
+    //扫描方法上面的@Options, @SelectKey, @ResultMap封装为MappedStatement对象
+    //然后add到Configuration.mappedStatements的map里面去（key为mapper的spacename）
     MapperRegistry --> addMapper()
                         -->new MapperProxyFactory(type)  jdk 动态代理   
                             -->new MapperProxy<T>(sqlSession, mapperInterface, methodCache)
                                 -->invoke 目标方法代理
                                     -->mapperMethod.execute(sqlSession, args)
     
+    //前端调用controller-->调用xxxMapper接口的方法的时候， 目标方法通过MapperProxy结果一次代理
+    //封装为MapperMethod对象 继续执行
     MapperMethod -- >  execute() 判断执行查询，插入，删除，还是修改    
     
     SqlSessionTemplate --select()
