@@ -12,8 +12,7 @@ tag: jeylly
     2.安装ruby(我是windows版本的)，下载安装包直接安装， 检查： ruby -v 出现版本则为成功。
     3.安装jekyll:  gem install jekyll;  jekyll -v: 出现版本则为成功；
     4.可能需要安装bundler: gem install bundler   
-    5.本地启动项目： jekyll server  如果没有报错则启动成功；  
-    
+    5.本地启动项目： jekyll server  如果没有报错则启动成功； --> (bundle exec jekyll server)
     
     启动的参数：
     Configuration file: D:/dev/live2/blog/_config.yml
