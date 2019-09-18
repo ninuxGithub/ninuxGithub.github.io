@@ -221,20 +221,19 @@ public class HttpClientTest {
 
     @Test
     public void sendHttpsRequest() {
-        HashMap<String, Object> hashMap = new HashMap<String, Object>() {{
-            put("name", "java");
-            put("age", 18);
-            put("content", "{\"name\":\"java\",\"age\":\"20\"}");
-        }};
+        HashMap<String, Object> hashMap = new HashMap<String, Object>();
+        hashMap.put("name", "java");
+        hashMap.put("age", 18);
+        hashMap.put("content", "{\"name\":\"java\",\"age\":\"20\"}");
 
         MultiValueMap<String, Object> requestParams = new LinkedMultiValueMap<String, Object>();
         requestParams.add("name", "java");
         requestParams.add("age", 18);
 
-        requestParams.add("content", new HashMap<String, Object>() {{
-            put("name", "java");
-            put("age", 20);
-        }});
+        Map<String,Object> temp = new HashMap<String,Object>();
+        temp.put("name", "java");
+        temp.put("age", 20);
+        requestParams.add("content", temp);
 
         //HttpsURLConnection
         String response = sendPost(url, hashMap);
