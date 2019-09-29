@@ -24,12 +24,15 @@ tag: netty
     
     就是说之前是HashSet的实例对象， 现在改成了自己的类即为： SelectedSelectionKeySet (继承了AbstractSet)  不就是一个Set类型吗；
     
+    可以通-Dio.netty.noKeySetOptimization=true 禁止选择的key优化
+    
     
     
 ## 绕过权限的用法
 
     修改自己定义容器里面的map的类型, 将HashMap的属性动态的修改为ConcurrentHashMap
     饶过权限的地方其他和多， 例如Thread类里面的创建threadGroup的时候
+    
     
 ```java
 package com.example.study.reflect;
