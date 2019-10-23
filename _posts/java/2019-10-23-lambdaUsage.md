@@ -2,7 +2,7 @@
 title: java 1.8 lambda 用法心得
 author: ninuxGithub
 layout: post
-date: 2019-10-22 10:34:44
+date: 2019-10-23 08:59:59
 description: "lambda"
 tag: java
 ---
@@ -19,6 +19,7 @@ package com.example.study.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.*;
 
 /**
@@ -33,6 +34,7 @@ public class LambdaTest {
         list.add(new DailyQuote(12.52, 13.00, 12.50, 11.44, "京东方A"));
         list.add(new DailyQuote(22.45, 23.52, 18.22, 29.56, "京东方B"));
         list.add(new DailyQuote(25.52, 89.78, 23.22, 14.44, "京东方C"));
+        list.add(new DailyQuote(22.22, 22.22, 22.22, 22.22, null));
 
 
         //predicate使用
@@ -49,7 +51,7 @@ public class LambdaTest {
 
 
         //有入参，无结果
-        Consumer<String> consumer = (p) -> System.out.println(p);
+        Consumer<String> consumer = System.out::println;
         consumer.accept("consumer java");
 
 
@@ -58,7 +60,7 @@ public class LambdaTest {
         System.out.println(supplier.get());
 
         //有入参， 有结果
-        Function<String, String> function = s -> "function "+s;
+        Function<String, String> function = s -> "function " + s;
         System.out.println(function.apply("函数测试"));
 
         //有入参， 出参为boolean
@@ -66,6 +68,58 @@ public class LambdaTest {
         System.out.println(p.test(2));
 
 
+        testOptional(list);
+
+    }
+
+    /**
+     * 测试optional
+     *
+     * @param list 数据
+     */
+    public static void testOptional(List<DailyQuote> list) {
+        //optional + orElse(Object elseValue)
+        for (DailyQuote quote : list) {
+            String s = Optional.ofNullable(quote)
+                    .map(DailyQuote::getSecuAbbr)
+                    .map(String::toUpperCase)
+                    .orElse(null);
+            System.out.println(s);
+        }
+
+        //optional + orElseGet(Supplier supplier)
+        for (DailyQuote quote : list) {
+            String s = Optional.ofNullable(quote)
+                    .map(DailyQuote::getSecuAbbr)
+                    .map(String::toUpperCase)
+                    .orElseGet(new Supplier<String>() {
+                        @Override
+                        public String get() {
+                            return "defaultValue";
+                        }
+                    });
+            System.out.println(s);
+        }
+
+
+        //optional + orElseThrow(Supplier exceptionSupplier)
+        for (DailyQuote quote : list) {
+            String s = null;
+            try {
+                s = Optional.ofNullable(quote)
+                        .map(DailyQuote::getSecuAbbr)
+                        .map(String::toUpperCase)
+                        .orElseThrow(new Supplier<Throwable>() {
+                            @Override
+                            public Throwable get() {
+                                return new RuntimeException("空指针");
+                            }
+                        });
+            } catch (Throwable throwable) {
+                //throwable.printStackTrace();
+            }
+            System.out.println(s);
+        }
     }
 
     /**
@@ -110,5 +164,6 @@ public class LambdaTest {
         }
     }
 }
+
 
 ```
