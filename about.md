@@ -7,7 +7,9 @@ title: 关于我
 <p>
 平时喜欢整理个人博客，逛逛技术论坛，将自己的学习心得分享到github,gitee。
 <p>
-熟悉light框架（vue）, vue + webpack ,themeleaf 等前台技术， angular了解过一点。
+~~ 一热衷于java后端开发的java爱好者。
+<p>
+~~不积跬步无以至千里，不积小流无以成江海~~
 
 <p>
 
