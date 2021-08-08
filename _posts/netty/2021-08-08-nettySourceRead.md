@@ -34,7 +34,7 @@ tag: netty
     就是开始了监听轮休， 处理事件， 然后将Task 丢到taskQueue里面去（execute不是立刻执行， 我想这也是类似于线程池的思想一样， 拥有一个缓冲的队列
     ，不要任务会慢慢的 放到线程里面去执行，不至于立刻执行导致线程的堵死）
 
-##Netty 一些思想
+## Netty 一些思想
     netty channel 的创建都是基于了发射工厂， 传递一个Class, 然后通过工厂模式来创建的。
     netty 里面的eventLoop , 也是有一个选择的策略， power of two & genera 2种方式
     还有一个就是netty 里面对selectionSelectedKey 集合的优化， 牛叉，相当于在启动的时候， 直接修改了Class 里面对象的类型， 使用了自己的Set
