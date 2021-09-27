@@ -9,7 +9,7 @@ tag: netty
 
 ## 分析netty NioEventLoop 里面的selectedKeys优化处理
 
-    在阅读netty源码的时候对selectedKeys一致有个疑问？ 
+    在阅读netty源码的时候对selectedKeys一直有个疑问？ 
     select(boolean b); 方法选择的时候是如何将key放到集合selectedKeys里面去的
     经过debug发现在WindowsSelectorImpl.processFDSet方法里面有selectedKeys.add(sk);
     为什么调用了io.netty.channel.nio.SelectedSelectionKeySet#add 方法；
