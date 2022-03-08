@@ -8,6 +8,35 @@ tag: java
 ---
 
 
+### case
+
+```java
+public class CountDownLatchTest {
+
+    @Test
+    public void test() throws InterruptedException {
+        int num = 2;
+        CountDownLatch latch = new CountDownLatch(num);
+        for (int i = 0; i < num; i++) {
+            new Thread(() -> {
+                System.out.println("线程： " + Thread.currentThread().getName() + " start===>");
+                try {
+                    TimeUnit.SECONDS.sleep(10);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(Thread.currentThread().getName() + " execute business code");
+                latch.countDown();
+            }, "countDown-thread-" + i).start();
+        }
+
+        latch.await();
+        System.out.println("finished.....");
+
+    }
+}
+```
+
 
 ## CountDownLatch 运行分析
     测试类参考： CountDownLatchTest
@@ -38,29 +67,3 @@ tag: java
  
 
 
-```java
-public class CountDownLatchTest {
-
-    @Test
-    public void test() throws InterruptedException {
-        int num = 2;
-        CountDownLatch latch = new CountDownLatch(num);
-        for (int i = 0; i < num; i++) {
-            new Thread(() -> {
-                System.out.println("线程： " + Thread.currentThread().getName() + " start===>");
-                try {
-                    TimeUnit.SECONDS.sleep(10);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() + " execute business code");
-                latch.countDown();
-            }, "countDown-thread-" + i).start();
-        }
-
-        latch.await();
-        System.out.println("finished.....");
-
-    }
-}
-```
