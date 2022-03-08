@@ -88,7 +88,7 @@ public class DemoController{
 ```
 
 
-##Hibernate join vs subQuery
+## Hibernate join vs subQuery
     hibernate 需要建立对象表之间的查询， 重点就是调用createAlias方法， 传递的是一个关联的hibernate 属性字段， 然后取一个别名
     setFetchModd(), createAlias(), 只有hibernate 最清楚对象的关联关系， 不需要考虑类似on a.id = b.id 属性关联的语句， 
     hibernate 内部之间通过Bean 的关联关系进行join
