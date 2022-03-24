@@ -2,16 +2,13 @@
 title: 多线程有序执行
 author: ninuxGithub
 layout: post
-date: 2022-3-23 18:35:30
+date: 2022-03-23 18:35:30
 description: "多线程通过condition来有序的执行"
 tag: java
 ---
 
 
-
 ## example
-
-
 ```java
 package com.example.study.test;
 
