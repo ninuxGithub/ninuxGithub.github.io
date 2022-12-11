@@ -4,7 +4,7 @@ author: ninuxGithub
 layout: post
 date: 2022-12-9 16:56:39
 description: "docker 使用记录随笔"
-tag: centos
+tag: docker
 ---
 ## 1.安装docker 
     卸载已安装的docker: yum remove docker  docker-common docker-selinux docker-engine
