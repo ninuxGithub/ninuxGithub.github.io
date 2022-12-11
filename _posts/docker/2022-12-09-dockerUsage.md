@@ -27,7 +27,7 @@ tag: docker
     坑： 发现idea 的 2022.x.x docker 插件版本连接docker后提示 "Cannot obtain deployments"
     解决方案： 使用idea 2021.1.3， docker 插件版本: 221.7628.21
 
-![img.png](../../images/posts/docker-version.png)
+![img.png](/images/posts/docker-version.png)
 
 
 ## 通过maven 插件打镜像   
@@ -85,12 +85,12 @@ tag: docker
 
 ## 开始查看docker 插件里面的镜像
 
-![img.png](../../images/posts/docker-config.png)
+![img.png](/images/posts/docker-config.png)
 
 
 ## 配置容器内映射端口
 
-![img.png](../../images/posts/docker-port-mapping.png)
+![img.png](/images/posts/docker-port-mapping.png)
 
 ## 访问
     通过http://192.168.23.100:8080/xxx 访问容器里面的应用
