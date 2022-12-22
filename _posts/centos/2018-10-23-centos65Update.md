@@ -6,7 +6,7 @@ date: 2018-10-23 11:21:04
 description: "centos 6.5 升级内核"
 tag: centos
 ---
-## 1.centos升级
+### 1.centos升级
 1.查看内核
 
     uname -r
@@ -42,7 +42,7 @@ tag: centos
 
     4.4.162-1.el6.elrepo.x86_64
 
-## 2.安装docker
+### 2.安装docker
 来自：https://blog.csdn.net/sun1021873926/article/details/78007307
 1.禁用selinux
 
