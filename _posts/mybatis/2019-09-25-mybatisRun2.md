@@ -7,7 +7,7 @@ description: "spring boot mybatis 运行分析2"
 tag: mybatis
 ---
 
-## mybatis 自动配置执行
+### mybatis 自动配置执行
     MybatisAutoConfiguration进行了mybatis的自动配置
     SqlSessionFactoryBean 对象的创建
     设置数据源
@@ -46,9 +46,9 @@ tag: mybatis
     CacheExecutor 执行的时候加入了二级缓存
     BaseExecutor执行的时候加入了一级缓存
     然后交给SimpleExecutor进行执行 交给xxxStatement
-    
-   
-## page helper 分析
+
+
+### page helper 分析
    
     分页插件的代码
 

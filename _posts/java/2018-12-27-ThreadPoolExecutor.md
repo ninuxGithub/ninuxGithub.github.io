@@ -8,7 +8,7 @@ tag: java
 ---
 
 
-## ThreadPoolExecutor类的介绍
+### ThreadPoolExecutor类的介绍
     ThreadPoolExecutor 是java集合包下java.util.concurrent， 对外提供4个构造函数
 
 ```java
@@ -47,7 +47,7 @@ tag: java
     execute: 提交任务到线程池去执行。
     submit: 也是提交任务到线程池， 但是submit 可以返回运算的结果，采用了Futrue来获取结果。
 
-## execute是如何运行的呢？
+### execute是如何运行的呢？
       ThreadPoolExecutor.Worker 的定义是：private final class Worker extends AbstractQueuedSynchronizer implements Runnable
       是一个Runnable 重新了run 方法 
       1.创建Worker  ThreadPoolExecutor.execute ---> ThreadPoolExecutor.addWorder(包含一个线程)
@@ -57,7 +57,7 @@ tag: java
       
       任务执行完毕~~~
       
-## submit 是如何运行的呢？
+### submit 是如何运行的呢？
    代码如下：  submit(Runnable) 是调用的execute 方法
    
 ```java
@@ -202,7 +202,7 @@ class FutureTask{
 
 
 
-## 测试类如下
+### 测试类如下
 
 ```java
 public class ThreadPoolTest {

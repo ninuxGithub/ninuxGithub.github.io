@@ -7,7 +7,7 @@ description: "dubbo xml config"
 tag: dubbo
 ---
 
-## dubbo 采用xml config
+### dubbo 采用xml config
    
     目的: 采用xml配置dubbo项目
     项目分为：dubbo-api,dubbo-consumer,dubbo-provider
@@ -827,7 +827,7 @@ public class Consumer {
 
 ```
 
-## 运行
+### 运行
     dubbo-api api的提供模块
     dubbo-provider 服务提供方
     dubbo-consumer 消费模块

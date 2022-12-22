@@ -7,7 +7,7 @@ description: "@LoadBalanced 如何运行的"
 tag: spring-cloud
 ---
 
-## Ribbon 如何实现负载均衡的？ 
+### Ribbon 如何实现负载均衡的？ 
     
     代码里面会在RestTemplate bean上面添加了@LoadBalance 就能实现负载均衡， 怎么实现的？
     

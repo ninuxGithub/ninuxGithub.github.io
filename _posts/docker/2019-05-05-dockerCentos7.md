@@ -6,8 +6,8 @@ date: 2019-5-5 13:55:51
 description: "centos7 docker使用"
 tag: docker
 ---
-  
-## docker 构建
+
+### docker 构建
     将项目：https://gitee.com/ninuxGithub/tomcat-nginx-balance.git克隆到centos
     安装好环境： 直接采用命令  mvn package docker:build会报错不知道为什么？
     Cannot retry request with a non-repeatable request entity:xxxxxxxxxx

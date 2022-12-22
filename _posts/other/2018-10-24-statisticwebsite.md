@@ -6,8 +6,8 @@ date: 2018-10-24 14:01:58
 description: "站点统计"
 tag: web
 ---
- 
-## 站点统计计数
+
+### 站点统计计数
     采用仆算子
     博客地址：https://www.jianshu.com/p/e3d9f6777fb8
 
@@ -16,9 +16,9 @@ tag: web
     
     html页面为：
     <span id="busuanzi_container_page_pv"> | 阅读：<span id="busuanzi_value_page_pv"></span>次</span>
-    
-    
-## 百度统计
+
+
+### 百度统计
     注册一个百度统计的账号：https://tongji.baidu.com/web/welcome/login
     添加一个想要统计的站点，然后会生成一个id
     

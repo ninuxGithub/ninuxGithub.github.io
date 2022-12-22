@@ -7,7 +7,7 @@ description: "Flume 推送日志到Kafka"
 tag: flume
 ---
 
-## 目的
+### 目的
     为了记录正确的方式来进行flume日志推送到kafka；
     
     

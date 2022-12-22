@@ -8,7 +8,7 @@ tag: mybatis
 ---
 
 
-## mybatis 如何实现对象的相互关联
+### mybatis 如何实现对象的相互关联
     
     多端采用collection来描述“一端”；
     
@@ -273,6 +273,6 @@ INSERT INTO `employee` VALUES ('4', '赵柳', '11', '3');
 
 
 
-## 重点
+### 重点
     在一端的表里面需要持续多的一端的id； toString方法避免栈溢出，循环打印对象；
     

@@ -7,15 +7,15 @@ description: "spring boot 2.x 使用LCN"
 tag: tx
 ---
 
-## myIsam & InnoDB
+### myIsam & InnoDB
     MyIsam : 默认类型，它是基于传统的ISAM类型， 是存储记录和文件的标准方法。 不是事物安全的，不支持外键，
     但是适合执行大量的select, insert (不受到外键的束缚 速度快)
     
     InnoDB: 支持事物安全的引擎， 支持外键， 行锁。 如果有大量的update , insert 建议使用InnoDB类型。
-    
-    
-    
-## spring boot 2.x 使用LCN
+
+
+
+### spring boot 2.x 使用LCN
     lcn 官网目前给出的lcn 版本为4.1.0 ， 如何使用高版本的spring boot 会出现不兼容的现象
     那么解决方案请参考：  https://www.cnblogs.com/sxdcgaq8080/p/9776695.html
     细节略...

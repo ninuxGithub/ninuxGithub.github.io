@@ -7,7 +7,7 @@ description: "SpringCloud Gateway"
 tag: spring-cloud
 ---
 
-## spring cloud gateway 
+### spring cloud gateway 
     gateway的作用是可以来作为服务的一个代理， 请求的转发，中间的一个路由的功能， 这就好比是nginx的功能；
     相比较zuul, zuul是将请求结果代理转发到了当前eureka注册中心的其他的服务上去的， 局限在了本服务集群体系里面的服务调用了；
     

@@ -6,8 +6,8 @@ date: 2018-10-23 14:10:13
 description: "docer部署springboot项目"
 tag: docker
 ---
-  
-## 配置
+
+### 配置
     项目配置参考https://gitee.com/ninuxGithub/tomcat-nginx-balance.git
     docker发布项目：
     https://www.cnblogs.com/ityouknow/p/8599093.html 
@@ -57,8 +57,8 @@ tag: docker
     
     
     后来不知道怎么就好了， 我将4.4.162-1.el6.elrepo.x86_64内核删除了  ~~~~
-    
-## docker命令
+
+### docker命令
     docker images: 查看容器中的镜像
     docker ps -all: 运行的镜像
     docker top id :查看镜像的状态
@@ -67,9 +67,9 @@ tag: docker
     docker stop id : 停止某个镜像
     docker run -p 8080:8888 docker/tomcat-nginx-balance  ： 运行一个镜像（名称为：docker/tomcat-nginx-balance）  启动在虚拟机的 8080端口  ， 部署在docker的8888端口
     docker rm id : 删除一个镜像
-    
-    
-## Dockerfile的语法
+
+
+### Dockerfile的语法
     from : 设置镜像使用的基础镜像
     maintainer: 设置镜像的维护者
     run:编译镜像的时候运行的脚本

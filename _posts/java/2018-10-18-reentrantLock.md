@@ -9,8 +9,8 @@ tag: java
     
     
     可重入锁的ReentrantLock vs Synchronized
-    
-## 实现原理
+
+### 实现原理
     Synchronized: jdk 的关键字， 锁的功能是jdk对改关键字实现了特殊的功能. 
     ReentrantLock: 出自jdk , 作者doug lea . 是代码的业务逻辑实现的锁的功能， 底层是基于AQS.
     
@@ -19,7 +19,7 @@ tag: java
     从锁的颗粒度来说： 后者优于前者
 
 
-## ReentrantLock的特点
+### ReentrantLock的特点
     1.可以指定公平锁还是非公平锁。 而synchronized是非公平的锁。
     公平的定义： 先等待的线程先获取锁， 可以理解为线程排队在一个队列里面， 陆续的获取锁。
     2.ReentrantLock 可以结合使用Condition, 实现分组唤醒线程。 

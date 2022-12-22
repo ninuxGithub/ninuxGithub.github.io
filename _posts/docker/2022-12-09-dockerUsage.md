@@ -6,7 +6,7 @@ date: 2022-12-9 16:56:39
 description: "docker 使用记录随笔"
 tag: docker
 ---
-## 1.安装docker 
+### 1.安装docker 
     卸载已安装的docker: yum remove docker  docker-common docker-selinux docker-engine
 
     安装： yum install docker
@@ -23,14 +23,14 @@ tag: docker
     检查: curl http://127.0.0.1:2375/info
 
 
-## idea 安装docker 连接 虚拟机docker
+### idea 安装docker 连接 虚拟机docker
     坑： 发现idea 的 2022.x.x docker 插件版本连接docker后提示 "Cannot obtain deployments"
     解决方案： 使用idea 2021.1.3， docker 插件版本: 221.7628.21
 
 ![img.png](/images/posts/docker-version.png)
 
 
-## 通过maven 插件打镜像   
+### 通过maven 插件打镜像   
 
 
 ```xml
@@ -83,16 +83,16 @@ tag: docker
 执行： mvn clean package docker:build 
 
 
-## 开始查看docker 插件里面的镜像
+### 开始查看docker 插件里面的镜像
 
 ![img.png](/images/posts/docker-config.png)
 
 
-## 配置容器内映射端口
+### 配置容器内映射端口
 
 ![img.png](/images/posts/docker-port-mapping.png)
 
-## 访问
+### 访问
     通过http://192.168.23.100:8080/xxx 访问容器里面的应用
 
 

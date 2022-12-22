@@ -7,7 +7,7 @@ description: "echart折线图，柱状图，雷达图"
 tag: js
 ---
 
-## 页面的结构
+### 页面的结构
 
 ```html
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ tag: js
 </html>
 ```
 
-## 雷达图
+### 雷达图
     
 ```js
 var dom = document.getElementById("container");
@@ -110,7 +110,7 @@ var dom = document.getElementById("container");
 
 
 
-## 折线图
+### 折线图
 
 ```js
 var dom = document.getElementById("container");
@@ -174,7 +174,7 @@ var dom = document.getElementById("container");
 ```
 
 
-## 柱状图
+### 柱状图
 
 ```js
  var dom = document.getElementById("container");
@@ -261,7 +261,7 @@ var dom = document.getElementById("container");
 ```
 
 
-## 效果如下
+### 效果如下
     雷达图
     
   ![echart 雷达图](/images/posts/echart1.jpg)

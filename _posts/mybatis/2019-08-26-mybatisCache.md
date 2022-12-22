@@ -7,7 +7,7 @@ description: "spring boot mybatis 缓存"
 tag: mybatis
 ---
 
-## mybatis 是如何开启一级， 二级缓存的
+### mybatis 是如何开启一级， 二级缓存的
 
     使用过mybatis的都知道可以开启一级， 二级缓存来加快业务的查询的速度；
     mybatis一级缓存默认是开启的， 二级缓存是默认关闭的；
@@ -174,8 +174,8 @@ class CachingExecutor{
 }
 ```    
 
-    
-## 总结
+
+### 总结
     扫描Mapper
     
     mybaits 启动的创建SqlSessionFactory 用来后续的sqlSession的创建

@@ -16,8 +16,8 @@ tag: java
     思路： 还是通过schdule进行一个特定频率的执行， 在schdule内部加入一个schduleJob, 我们可以控制job的
     开始时间和job的结束时间来控制该job执行的时间控制到某个具体的范围[startTime, endTime]之间， 
     并且以适当的频率执行；
-    
-## 步骤
+
+### 步骤
     spring boot + quartz
     spring boot 2.x以后， 为我们提供了quartz的starter依赖
     首先需要了解spring boot 整合quartz可以有2中方式， 一种job是基于内存的（RAMJobStore）；

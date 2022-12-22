@@ -7,12 +7,12 @@ description: "CompletableFuture使用"
 tag: java
 ---
 
-## CompletableFuture介绍
+### CompletableFuture介绍
     
     CompletableFuture 出自jdk1.8 为了解决线程异步调用， 以及线程的回调， 异步执行完毕后获取结果
-    
-    
-## CompletableFuture使用 
+
+
+### CompletableFuture使用 
     该类的方法也比较多， 此处仅仅挑选几个 测试使用
     1.thenCompose 返回的是一个 CompletableFuture
     2.thenApply  调用  supplyAsync  的结果  继续做一些事情   有返回结果

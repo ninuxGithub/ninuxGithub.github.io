@@ -7,7 +7,7 @@ description: "netty之selectedKeys"
 tag: netty
 ---
 
-## 分析netty NioEventLoop 里面的selectedKeys优化处理
+### 分析netty NioEventLoop 里面的selectedKeys优化处理
 
     在阅读netty源码的时候对selectedKeys一直有个疑问？ 
     select(boolean b); 方法选择的时候是如何将key放到集合selectedKeys里面去的
@@ -25,10 +25,10 @@ tag: netty
     就是说之前是HashSet的实例对象， 现在改成了自己的类即为： SelectedSelectionKeySet (继承了AbstractSet)  不就是一个Set类型吗；
     
     可以通-Dio.netty.noKeySetOptimization=true 禁止选择的key优化
-    
-    
-    
-## 绕过权限的用法
+
+
+
+### 绕过权限的用法
 
     修改自己定义容器里面的map的类型, 将HashMap的属性动态的修改为ConcurrentHashMap
     饶过权限的地方其他和多， 例如Thread类里面的创建threadGroup的时候

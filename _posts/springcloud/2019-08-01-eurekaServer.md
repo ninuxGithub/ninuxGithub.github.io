@@ -8,7 +8,7 @@ tag: spring-cloud
 ---
 
 
-## 目的
+### 目的
     分析Eureka Server 运行的原理，源代码分析思路如下
      
     
@@ -21,7 +21,7 @@ tag: spring-cloud
     我们可以和容易的找到xxxAutoConfiguration
 
 
-## 原理分析
+### 原理分析
     EurekaServerAutoConfiguration 这个类承担了spring cloud 微服务Eureka Server 启动的时候的主要的类的加载工作；
     下面通过源代码来查看细节；
 
@@ -565,7 +565,7 @@ public class EurekaServerInitializerConfiguration
 
 
 
-## 总结
+### 总结
     2019-8-1 10:08:30 更新
     Eureka 组件提供了服务的注册和发现机制， 让我们的服务接收eureka的管理，通过定时器来执行多线程任务来进行服务缓存的更新，还有
     就是进行服务心跳的发送来检查我们的服务是否是存活的；

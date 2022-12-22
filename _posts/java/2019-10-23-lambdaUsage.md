@@ -7,7 +7,7 @@ description: "lambda"
 tag: java
 ---
 
-## lambda usage
+### lambda usage
 
     Predicate 在对集合的筛选的时候是非常有用的
     

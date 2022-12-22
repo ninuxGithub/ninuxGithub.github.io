@@ -7,7 +7,7 @@ description: "tomcat request"
 tag: tomcat
 ---
 
-## tomcat 的结构是怎样的？
+### tomcat 的结构是怎样的？
     spring boot 在onRefresh 的时候通过webServerFactory 创建了容器， 然后启动， 其实没有真正启动容器， 只是进行了protocolHandler 的初始化
     当执行finishRefresh 的时候通过调用lifeCycle 来完成 protocolHandler的start, 启动NioEndpoint 
 
@@ -15,7 +15,7 @@ tag: tomcat
 
 ![tomcat 结构](/images/posts/tomcat-structure.png)    
 
-## tomcat 是怎么接受请求和将将请求向后传递的
+### tomcat 是怎么接受请求和将将请求向后传递的
 
     tomcat 通NioEndpoint 提供服务， startInternal 会创建好一个线程池， 创建一个Poller 轮询线程来发现是否有事件发生， 
     然后开启一个Acceptor线程来接收socket,
