@@ -2,7 +2,7 @@
 title: Spring Cloud + @LoadBalanced how to work?
 author: ninuxGithub
 layout: post
-date: 2022-12-22 18:47:48
+date: 2022-12-20 18:47:48
 description: "@LoadBalanced 如何运行的"
 tag: spring-cloud
 ---
