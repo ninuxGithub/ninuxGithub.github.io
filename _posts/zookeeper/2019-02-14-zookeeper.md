@@ -8,7 +8,7 @@ tag: zookeeper
 ---
 
 
-## zookeeper 的个人理解
+### zookeeper 的个人理解
     
     zookeeper是一个比较好的开发软件， 可以用于dubbo,hadoop...等项目的配置配置中心，服务的注册中心。 
     
@@ -22,7 +22,7 @@ tag: zookeeper
 
 
 
-## zookeeper 入门 
+### zookeeper 入门 
     zookeeper 的学习无非是 目录的建立 修改 节点数据的读取  这些是服务注册和发现的基础
     
     zookeeper master 选举

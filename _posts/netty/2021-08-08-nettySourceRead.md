@@ -40,7 +40,7 @@ tag: netty
     还有一个就是netty 里面对selectionSelectedKey 集合的优化， 牛叉，相当于在启动的时候， 直接修改了Class 里面对象的类型， 使用了自己的Set
     取代了java Nio 的集合， 从而可以提高了selector 可以选择事数量件可以拓展 (扩容)。
 
-## selector 注册
+### selector 注册
     selector 在netty 里面扮演了至关重要的就是，别人都说netty 实现了多路复用，个人理解就是这个selector 起了决定重要的作用。
     在windows 里面默认是使用的windowsSelectorImpl,  select 方式来继续事件的监听的。 那么在linux 里面就是基于epoll 的方式来监听事件
     他们后会创建fd, 然后注册fd, 监听事件， 这是select需要轮询所有的fd set ,然后epoll, 会有一个callback ， 内核会主动通知时间在那个fd 上面
@@ -50,7 +50,7 @@ tag: netty
     上去, 那么怎么注册的呢？ 这个因为是我debug 很久才发现的， 在ServerBootstrapAcceptor里面的channelRead 方法里面有一行代码
     childGroup.register(child).addListener， 这个就是 将channel注册到  workerReactor 的selector 上至关重要的一行代码。
 
-## handler & channelPipeline
+### handler & channelPipeline
     上面讲到了 handler 是类似于一种过滤器一样的 ， 一个接这个一个维护在pipeline 里面的（就是双向链表）。
     其实放到pipeline 里面的是 channelHandlerContext 封装了一个EventLoop, name,和当前的handler ， 所以个我们可以在handle 里面获取一个‘
     eventLoop 的东西去执行execute
