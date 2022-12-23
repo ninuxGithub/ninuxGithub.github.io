@@ -8,8 +8,10 @@ tag: centos
 ---
 ### Jxls export excel 
     直接上一个demo
+
+    template 是需要编辑的， 有特定的语法，请参考： https://jxls.sourceforge.net/getting_started.html
     
-![template.xlsx](/images/posts/premierinn-product-template.xlsx)
+  ![template.xlsx](/images/posts/product-template.xlsx)
 
 
 ```java
