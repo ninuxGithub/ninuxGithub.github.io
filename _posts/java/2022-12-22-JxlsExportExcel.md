@@ -13,6 +13,8 @@ tag: centos
     
   ![template.xlsx](/images/posts/product-template.xlsx)
 
+    模板github地址：https://github.com/ninuxGithub/ninuxGithub.github.io/blob/master/images/posts/product-template.xlsx
+
 
 ```java
 @RestController
