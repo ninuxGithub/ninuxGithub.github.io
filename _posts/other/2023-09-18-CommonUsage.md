@@ -2,7 +2,7 @@
 title: 常用的命令
 author: ninuxGithub
 layout: post
-date: 2023-9-19 18:33:34
+date: 2023-9-18 18:33:34
 description: "常用的命令"
 tag: other
 ---
