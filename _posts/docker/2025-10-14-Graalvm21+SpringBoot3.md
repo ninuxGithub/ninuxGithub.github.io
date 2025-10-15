@@ -195,7 +195,7 @@ docker run -d -p 8080:8080 --name graalvm-test-app graalvm-test
 ```
 
 
-![graalvm-build-image.png](../../images/posts/graalvm-build-image.png)
+![graalvm-build-image.png](/images/posts/graalvm-build-image.png)
 
 
 
