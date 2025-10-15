@@ -2,7 +2,7 @@
 title: Graalvm21+SpringBoot3构建镜像
 author: ninuxGithub
 layout: post
-date: 2025-10-15 10:26:49
+date: 2025-10-14 10:26:49
 description: "docker 构建镜像"
 tag: docker
 ---
